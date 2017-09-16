@@ -3,7 +3,34 @@
   <h1>
     Welcome to {{title}}!
   </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
-<h2>Todos component:</h2>
-<app-todos [todos]="todos | async"></app-todos>
+<md-grid-list cols="4" [rowHeight]="tileHeight">
+  <!-- tours tile -->
+  <md-grid-tile
+      colspan="1"
+      rowspan="1"
+      [style.background]="'lightblue'">
+    <app-tours [tours]="tours.data | async"></app-tours>
+  </md-grid-tile>
+  <!-- maps tile -->
+  <md-grid-tile
+    colspan="3"
+    rowspan="2"
+    [style.background]="'lightgreen'">
+    map tile
+  </md-grid-tile>
+  <!-- waypoints tile -->
+  <md-grid-tile
+    colspan="1"
+    rowspan="1"
+    [style.background]="'brown'">
+    <app-waypoints></app-waypoints>
+  </md-grid-tile>
+  <!-- driver data tile -->
+  <md-grid-tile
+    colspan="4"
+    rowspan="1"
+    [style.background]="'lightyellow'">
+    driver data
+  </md-grid-tile>
+</md-grid-list>

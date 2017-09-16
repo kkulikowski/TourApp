@@ -1,5 +1,5 @@
-import { Todo } from './todo.interface';
+import { Tour } from './tour.interface';
 
-export interface State {
-  todos: Todo[];
+export interface AppState {
+  tours: Tour[];
 }

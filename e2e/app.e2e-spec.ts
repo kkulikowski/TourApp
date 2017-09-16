@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('angular-ngrx-boilerplate App', () => {
+describe('tour-app App', () => {
   let page: AppPage;
 
   beforeEach(() => {

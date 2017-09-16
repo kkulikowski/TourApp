@@ -1,12 +1,12 @@
 import {Component, Input, ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
-  selector: 'app-todo',
+  selector: 'app-waypoint',
   template: `
-    <p>{{todo.title}}</p>
+    <p>{{waypoint.location}}</p>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TodoComponent {
-  @Input() todo;
+export class WaypointComponent {
+  @Input() waypoint;
 }

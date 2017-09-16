@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Todo } from './models/todo.interface';
-import { State } from './models/state.interface';
+import { Tour } from './models/tour.interface';
+import { AppState } from './models/state.interface';
 import { Store } from '@ngrx/store';
-import * as todosActions from './store/todos.actions';
+import * as toursActions from './store/tours.actions';
 
 
 @Component({
@@ -12,11 +12,12 @@ import * as todosActions from './store/todos.actions';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  todos: Observable<Todo[]>;
-  title = 'Angular ngrx Boilerplate';
+  tours: Observable<Tour[]>;
+  title = 'Tour App';
+  tileHeight = '200px';
 
-  constructor(private store: Store<State>) {
-    this.store.dispatch(new todosActions.GetTodosAction());
-    this.todos = store.select('todos');
+  constructor(private store: Store<AppState>) {
+    // this.store.dispatch(new toursActions.GetTodosAction());
+    this.tours = store.select(state => state.tours);
   }
 }

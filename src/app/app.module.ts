@@ -1,15 +1,18 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { TodosComponent } from './containers/todos/todos.component';
-import { TodoComponent } from './components/todo/todo.component';
+import { WaypointsComponent } from './containers/waypoints/waypoints.component';
+import { WaypointComponent } from './components/waypoint/waypoint.component';
+import { ToursComponent } from './containers/tours/tours.component';
+import { TourComponent } from './components/tour/tour.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-import { TodosEffects } from './store/todos.effects';
-import { todos } from './store/todos.reducer';
-import { TodosService } from './store/todos.service';
+import { ToursEffects } from './store/tours.effects';
+import { tours } from './store/tours.reducer';
+import { ToursService } from './store/tours.service';
 
 // Operators, uncomment the ones that you will use
 import 'rxjs/add/operator/map';
@@ -28,15 +31,53 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/timer';
 // import 'rxjs/add/observable/combineLatest'; import 'rxjs/add/observable/zip';
 
+// Material Imports
+import {
+  // MdAutocompleteModule,
+  // MdButtonModule,
+  // MdButtonToggleModule,
+  // MdCardModule,
+  // MdCheckboxModule,
+  // MdChipsModule,
+  MdCoreModule,
+  // MdDatepickerModule,
+  // MdDialogModule,
+  // MdExpansionModule,
+  MdGridListModule,
+  MdIconModule,
+  // MdInputModule,
+  // MdListModule,
+  // MdMenuModule,
+  // MdNativeDateModule,
+  // MdPaginatorModule,
+  // MdProgressBarModule,
+  // MdProgressSpinnerModule,
+  // MdRadioModule,
+  // MdRippleModule,
+  // MdSelectModule,
+  // MdSidenavModule,
+  // MdSliderModule,
+  // MdSlideToggleModule,
+  // MdSnackBarModule,
+  // MdSortModule,
+  // MdTableModule,
+  // MdTabsModule,
+  // MdToolbarModule,
+  // MdTooltipModule,
+} from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
-    TodosComponent,
-    TodoComponent
+    WaypointsComponent,
+    WaypointComponent,
+    ToursComponent,
+    TourComponent
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({todos}),
+    BrowserAnimationsModule,
+    StoreModule.forRoot({tours}),
     /**
      * Store devtools instrument the store retaining past versions of state
      * and recalculating new states. This enables powerful time-travel
@@ -57,10 +98,44 @@ import 'rxjs/add/observable/timer';
      * See: https://github.com/ngrx/effects/blob/master/docs/api.md#run
      */
     EffectsModule.forRoot([
-      TodosEffects
+      ToursEffects
     ]),
+    /**
+     * Material Imports
+     */
+    // MdAutocompleteModule,
+    // MdButtonModule,
+    // MdButtonToggleModule,
+    // MdCardModule,
+    // MdCheckboxModule,
+    // MdChipsModule,
+    MdCoreModule,
+    // MdDatepickerModule,
+    // MdDialogModule,
+    // MdExpansionModule,
+    MdGridListModule,
+    MdIconModule,
+    // MdInputModule,
+    // MdListModule,
+    // MdMenuModule,
+    // MdNativeDateModule,
+    // MdPaginatorModule,
+    // MdProgressBarModule,
+    // MdProgressSpinnerModule,
+    // MdRadioModule,
+    // MdRippleModule,
+    // MdSelectModule,
+    // MdSidenavModule,
+    // MdSliderModule,
+    // MdSlideToggleModule,
+    // MdSnackBarModule,
+    // MdSortModule,
+    // MdTableModule,
+    // MdTabsModule,
+    // MdToolbarModule,
+    // MdTooltipModule,
   ],
-  providers: [TodosService],
+  providers: [ToursService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
