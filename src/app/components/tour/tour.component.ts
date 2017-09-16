@@ -4,12 +4,11 @@ import {Tour} from '../../models/tour.interface';
 @Component({
   selector: 'app-tour',
   template: `
-    <div>
+    <div fxLayout="row">
       <a mdLine (click)="selectTour(tour)">
-      {{ tour.name }}
-      <md-icon *ngIf="tour.selected">keyboard_arrow_right</md-icon>
+        {{ tour.name }}
       </a>
-      <md-icon (click)="handleRemoveTour(tour)">remove</md-icon>
+      <md-icon (click)="handleRemoveTour(tour)">delete</md-icon>
     </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush

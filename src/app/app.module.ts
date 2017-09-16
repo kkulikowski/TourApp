@@ -15,6 +15,8 @@ import { ToursEffects } from './store/tours.effects';
 import { tours } from './store/tours.reducer';
 import { ToursService } from './store/tours.service';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 // Operators, uncomment the ones that you will use
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mapTo';
@@ -37,7 +39,7 @@ import {
   // MdAutocompleteModule,
   MdButtonModule,
   // MdButtonToggleModule,
-  // MdCardModule,
+  MdCardModule,
   // MdCheckboxModule,
   // MdChipsModule,
   MdCoreModule,
@@ -101,6 +103,7 @@ import {
     EffectsModule.forRoot([
       ToursEffects
     ]),
+    FlexLayoutModule,
     FormsModule,
     /**
      * Material Imports
@@ -108,7 +111,7 @@ import {
     // MdAutocompleteModule,
     MdButtonModule,
     // MdButtonToggleModule,
-    // MdCardModule,
+    MdCardModule,
     // MdCheckboxModule,
     // MdChipsModule,
     MdCoreModule,

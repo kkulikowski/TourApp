@@ -32,4 +32,12 @@ export class AppComponent {
   handleSelectTour($event) {
     this.store.dispatch(new toursActions.SelectTourAction($event));
   }
+
+  handleAddWaypoint($event) {
+    this.store.dispatch(new toursActions.AddWaypointAction($event));
+  }
+
+  handleRemoveWaypoint($event) {
+    this.store.dispatch(new toursActions.RemoveWaypointAction($event));
+  }
 }

@@ -6,7 +6,7 @@
 </div>
 
 <div fxLayout="row">
-  <div fxLayout="column" fxFlex="20">
+  <div fxLayout="column" fxFlex="30">
     <!-- tours tile -->
     <div>
       <app-tours
@@ -20,17 +20,34 @@
     <!-- waypoints tile -->
     <div>
       <app-waypoints
-        [selectedTour]="(tours | async).selectedTour">
+        [selectedTour]="(tours | async).selectedTour"
+        (onAddWaypoint)="handleAddWaypoint($event)"
+        (onRemoveWaypoint)="handleRemoveWaypoint($event)"
+      >
       </app-waypoints>
     </div>
   </div>
   <!-- maps tile -->
-  <div fxFlex="80">
-    big map goes here
+  <div fxFlex>
+    <md-card fxFlex>
+      <md-card-title>
+        Map goes here
+      </md-card-title>
+      <md-card-content>
+        Lorem ipsum...
+      </md-card-content>
+    </md-card>
   </div>
 </div>
 
-<div fxLayout="row" style="background-color: lightblue">
+<div fxLayout="row">
   <!-- driver data tile -->
-  driver data
+  <md-card fxFlex>
+    <md-card-title>
+      Driver Data
+    </md-card-title>
+    <md-card-content>
+      Lorem ipsum...
+    </md-card-content>
+  </md-card>
 </div>

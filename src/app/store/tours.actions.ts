@@ -30,13 +30,13 @@ export class SelectTourAction implements Action {
 export class AddWaypointAction implements Action {
   readonly type = ADD_WAYPOINT;
 
-  constructor (public payload: Tour) { }
+  constructor (public payload: any) { }
 }
 
 export class RemoveWaypointAction implements Action {
   readonly type = REMOVE_WAYPOINT;
 
-  constructor (public payload: Tour) { }
+  constructor (public payload: Waypoint) { }
 }
 
 export type Actions

@@ -46,26 +46,25 @@ export function tours( state = initialState, action: toursActions.Actions ) {
       };
 
     case toursActions.ADD_WAYPOINT:
-      const newToursAfterAdd = state.data.map( (tour) => {
-        if (tour.name !== action.payload.name) { return tour; }
-        return {...tour, ...action.payload};
-      });
+      const updatedTour = {...action.payload.selectedTour, waypoints: [...state.selectedTour.waypoints, action.payload.waypoint]};
+      const updatedTours = state.data.filter( (tour, index) => action.payload.selectedTour.name !== tour.name);
       return {
         ...state,
-        tours: [...state.data, newToursAfterAdd],
+        data: [...updatedTours, updatedTour],
+        selectedTour: updatedTour,
         error: null
       };
 
     case toursActions.REMOVE_WAYPOINT:
-      const newToursAfterRemove = state.data.map( (tour) => {
-        if (tour.name !== action.payload.name) { return tour; }
-        return {...tour, ...action.payload};
-      });
+      const tourWithRemovedWaypoint = {...state.selectedTour, waypoints: state.selectedTour.waypoints
+        .filter((waypoint, index) => action.payload.location !== waypoint.location)};
+      const updatedToursWithoutWaypoing = state.data.filter( (tour, index) => state.selectedTour.name !== tour.name);
       return {
-        ...state,
-        tours: [...state.data, newToursAfterRemove],
-        error: null
-      };
+          ...state,
+          data: [...updatedToursWithoutWaypoing, tourWithRemovedWaypoint],
+          selectedTour: tourWithRemovedWaypoint,
+          error: null
+        };
 
     default:
       return state;
