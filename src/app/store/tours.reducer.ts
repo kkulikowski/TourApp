@@ -1,15 +1,25 @@
 import * as toursActions from './tours.actions';
+import { Tour } from '../models/tour.interface';
 
-const initialState = {
+export class ToursState {
+  data: Tour[];
+  selectedTour: Tour;
+}
+
+const DEFAULT_TOUR = {
+  name: 'Default Tour',
+  waypoints: [
+    { location: 'Trysil' },
+    { location: 'Hafjell' }
+  ],
+  driverData: 'no data yet'
+};
+
+const initialState: ToursState = {
   data: [
-    {
-      name: 'Default Tour',
-      waypoints: [
-        { location: 'Trysil' },
-      ],
-      driverData: 'no data yet'
-    }
-  ]
+    DEFAULT_TOUR
+  ],
+  selectedTour: DEFAULT_TOUR
 };
 
 export function tours( state = initialState, action: toursActions.Actions ) {
@@ -17,7 +27,7 @@ export function tours( state = initialState, action: toursActions.Actions ) {
     case toursActions.ADD_TOUR:
       return {
         ...state,
-        data: [...state.data, action.payload],
+        data: [...state.data, { name: action.payload, waypoints: [], driverData: ''}],
         error: null
       };
 
@@ -25,8 +35,14 @@ export function tours( state = initialState, action: toursActions.Actions ) {
       const newTourArray = state.data.filter( (tour, index) => action.payload.name !== tour.name );
       return {
         ...state,
-        tours: newTourArray,
+        data: newTourArray,
         error: null
+      };
+
+    case toursActions.SELECT_TOUR:
+      return {
+        ...state,
+        selectedTour: action.payload
       };
 
     case toursActions.ADD_WAYPOINT:

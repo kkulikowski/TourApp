@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { WaypointsComponent } from './containers/waypoints/waypoints.component';
@@ -34,7 +35,7 @@ import 'rxjs/add/observable/timer';
 // Material Imports
 import {
   // MdAutocompleteModule,
-  // MdButtonModule,
+  MdButtonModule,
   // MdButtonToggleModule,
   // MdCardModule,
   // MdCheckboxModule,
@@ -45,9 +46,9 @@ import {
   // MdExpansionModule,
   MdGridListModule,
   MdIconModule,
-  // MdInputModule,
-  // MdListModule,
-  // MdMenuModule,
+  MdInputModule,
+  MdListModule,
+  MdMenuModule,
   // MdNativeDateModule,
   // MdPaginatorModule,
   // MdProgressBarModule,
@@ -62,7 +63,7 @@ import {
   // MdSortModule,
   // MdTableModule,
   // MdTabsModule,
-  // MdToolbarModule,
+  MdToolbarModule,
   // MdTooltipModule,
 } from '@angular/material';
 
@@ -100,11 +101,12 @@ import {
     EffectsModule.forRoot([
       ToursEffects
     ]),
+    FormsModule,
     /**
      * Material Imports
      */
     // MdAutocompleteModule,
-    // MdButtonModule,
+    MdButtonModule,
     // MdButtonToggleModule,
     // MdCardModule,
     // MdCheckboxModule,
@@ -115,9 +117,9 @@ import {
     // MdExpansionModule,
     MdGridListModule,
     MdIconModule,
-    // MdInputModule,
-    // MdListModule,
-    // MdMenuModule,
+    MdInputModule,
+    MdListModule,
+    MdMenuModule,
     // MdNativeDateModule,
     // MdPaginatorModule,
     // MdProgressBarModule,
@@ -132,7 +134,7 @@ import {
     // MdSortModule,
     // MdTableModule,
     // MdTabsModule,
-    // MdToolbarModule,
+    MdToolbarModule,
     // MdTooltipModule,
   ],
   providers: [ToursService],

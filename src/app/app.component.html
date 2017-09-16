@@ -4,33 +4,33 @@
     Welcome to {{title}}!
   </h1>
 </div>
-<md-grid-list cols="4" [rowHeight]="tileHeight">
-  <!-- tours tile -->
-  <md-grid-tile
-      colspan="1"
-      rowspan="1"
-      [style.background]="'lightblue'">
-    <app-tours [tours]="tours.data | async"></app-tours>
-  </md-grid-tile>
+
+<div fxLayout="row">
+  <div fxLayout="column" fxFlex="20">
+    <!-- tours tile -->
+    <div>
+      <app-tours
+        [tours]="(tours | async).data"
+        (onAddTour)="handleAddTour($event)"
+        (onRemoveTour)="handleRemoveTour($event)"
+        (onSelectTour)="handleSelectTour($event)"
+      ></app-tours>
+    </div>
+
+    <!-- waypoints tile -->
+    <div>
+      <app-waypoints
+        [selectedTour]="(tours | async).selectedTour">
+      </app-waypoints>
+    </div>
+  </div>
   <!-- maps tile -->
-  <md-grid-tile
-    colspan="3"
-    rowspan="2"
-    [style.background]="'lightgreen'">
-    map tile
-  </md-grid-tile>
-  <!-- waypoints tile -->
-  <md-grid-tile
-    colspan="1"
-    rowspan="1"
-    [style.background]="'brown'">
-    <app-waypoints></app-waypoints>
-  </md-grid-tile>
+  <div fxFlex="80">
+    big map goes here
+  </div>
+</div>
+
+<div fxLayout="row" style="background-color: lightblue">
   <!-- driver data tile -->
-  <md-grid-tile
-    colspan="4"
-    rowspan="1"
-    [style.background]="'lightyellow'">
-    driver data
-  </md-grid-tile>
-</md-grid-list>
+  driver data
+</div>
