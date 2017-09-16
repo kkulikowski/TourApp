@@ -8,6 +8,7 @@ import { WaypointsComponent } from './containers/waypoints/waypoints.component';
 import { WaypointComponent } from './components/waypoint/waypoint.component';
 import { ToursComponent } from './containers/tours/tours.component';
 import { TourComponent } from './components/tour/tour.component';
+import { MapComponent } from './components/map/map.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
@@ -75,7 +76,8 @@ import {
     WaypointsComponent,
     WaypointComponent,
     ToursComponent,
-    TourComponent
+    TourComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
